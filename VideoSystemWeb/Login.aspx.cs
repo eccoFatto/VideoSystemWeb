@@ -53,8 +53,9 @@ namespace VideoSystemWeb
 
                                     Session[SessionManager.UTENTE] = dt.Rows[0];
                                     Response.Redirect("Agenda.aspx", true);
+
                                 }
-                            }
+                            } 
                         }
                     }
                 }
