@@ -40,7 +40,8 @@
                     },
                     addEventButton: {
                         text: 'Aggiungi evento...',
-                        click: function() {
+                        click: function () {
+                            $("ModaleEvento").show();
                             var dateStr = prompt('Aggiungere una data in formato YYYY-MM-DD');
                             
                             var date = moment(dateStr);
@@ -91,8 +92,55 @@
               })
         });
 
-        
     </script>
 
     <div id='calendar'></div>
+
+    <div class="modal fade" id="ModaleEvento" tabindex="-1" role="dialog" aria-labelledby="ModaleEventoTitolo" aria-hidden="true">
+
+
+
+
+
+
+        <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    <label id="ModaleEventoTitolo">
+                        Modifica Evento</label>
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    PROVA1
+                </div>
+                <div class="row">
+                    PROVA2
+
+                </div>
+                <div class="row">
+                    PROVA3
+                </div>
+                <div class="row">
+                    PROVA4
+                </div>
+                <div class="row">
+                    PROVA5
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnChiudiEvento" class="btn btn-secondary btn-sm bottonePiccolo"
+                    data-dismiss="modal" >
+                    Chiudi</button>
+                <button type="button" id="btnSalva" class="btn btn-success btn-sm bottonePiccolo">
+                    Salva</button>
+            </div>
+        </div>
+    </div>
+
+    </div>
 </asp:Content>
