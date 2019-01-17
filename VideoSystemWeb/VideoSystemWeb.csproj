@@ -134,6 +134,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Css\bootstrap-datepicker3.min.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -146,8 +147,12 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="griglia.aspx" />
+    <Content Include="grigliaNicola.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="logoVSP.png" />
+    <Content Include="Scripts\bootstrap-datepicker.it.min.js" />
+    <Content Include="Scripts\bootstrap-datepicker.min.js" />
     <Content Include="Scripts\fullcalendar\demos\json\events.json" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -322,14 +327,30 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Entity\DatiAgenda.cs" />
     <Compile Include="Entity\Evento.cs" />
     <Compile Include="Entity\Json\Evento_Json.cs" />
+    <Compile Include="Entity\Tipologica.cs" />
     <Compile Include="Entity\Tipo_Evento.cs" />
     <Compile Include="Entity\Tipologie.cs" />
     <Compile Include="Entity\Tipo_Utente.cs" />
     <Compile Include="Entity\Anag_Utente.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="griglia.aspx.cs">
+      <DependentUpon>griglia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="griglia.aspx.designer.cs">
+      <DependentUpon>griglia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grigliaNicola.aspx.cs">
+      <DependentUpon>grigliaNicola.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grigliaNicola.aspx.designer.cs">
+      <DependentUpon>grigliaNicola.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

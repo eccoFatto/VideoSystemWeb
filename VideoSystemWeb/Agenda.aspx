@@ -80,7 +80,7 @@
                     container: 'body'
                   });
                 },
-                events: <%=eventi%>,     
+                //events: < %=eventi%>,     
                 eventClick: function(calEvent, jsEvent, view) {
                     alert('Event: ' + calEvent.title);
                     alert('View: ' + view.name);

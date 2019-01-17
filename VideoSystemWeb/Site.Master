@@ -17,9 +17,14 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
     <link rel='stylesheet' href='Scripts/fullcalendar/fullcalendar.css' />
+    <link rel='stylesheet' href='Css/bootstrap-datepicker3.min.css' />
+
     <script src='Scripts/jquery-3.3.1.min.js'></script>
     <script src='Scripts/moment.min.js'></script>
+    <script src="Scripts/tether.js" type="text/javascript"></script>
     <script src='Scripts/bootstrap.min.js'></script>
+    <script src='Scripts/bootstrap-datepicker.min.js'></script>
+    <script src='Scripts/bootstrap-datepicker.it.min.js'></script>
     <script src='Scripts/fullcalendar/fullcalendar.js'></script>
     <script src='Scripts/fullcalendar/locale-all.js'></script>
 
@@ -32,31 +37,31 @@
 <body>
     <form runat="server">
     <div id="MENU" class="w3-container w3-0 mydiv" style="align-content:center;">
-    <table id="tblmenu" style="width:100%;">
-        <tr>
-            <td style="width:10%;align-content:center;text-align:center;"><div class="w3-panel w3-yellow w3-border w3-hover-orange w3-round"><a href="Agenda.aspx" title="Gestione Agenda">Agenda</a></div></td>
-            <td style="width:10%;align-content:center;text-align:center;"><div class="w3-panel w3-yellow w3-border w3-hover-orange w3-round"><a href="#" title="Report">Report</a></div></td>
-            <td style="width:10%;align-content:center;text-align:center;"><div class="w3-panel w3-yellow w3-border w3-hover-orange w3-round"><a href="#" title="Gestione Anagrafiche Clienti - Fornitori - Collaboratori">Anagrafiche</a></div></td>
-            <td style="width:10%;align-content:center;text-align:center;"><div class="w3-panel w3-yellow w3-border w3-hover-orange w3-round"><a href="#" title="Gestione Magazzino">Magazzino</a></div></td>
-            <td style="width:10%;align-content:center;text-align:center;"></td>
-            <td style="width:10%;align-content:center;text-align:center;"></td>
-            <td style="width:10%;align-content:center;text-align:center;"></td>
-            <td style="width:10%;align-content:center;text-align:center;"></td>
-            <td style="width:10%;align-content:center;text-align:center;"><div class="w3-panel w3-yellow w3-border w3-hover-orange w3-round"><a href="Login.aspx" title="Uscita Applicazione">ESCI</a></div></td>
-            <td style="width:10%;align-content:center;text-align:center;">
-                <asp:Image ID="Image1" runat="server" Height="100px" ImageAlign="AbsMiddle" ImageUrl="~/logoVSP.png" />
-            </td>
-        </tr>
-    </table>
-</div>
-        <div class="container body-content" style="height:90%;">
-            <asp:Label ID="lbl_benvenuto" runat="server" ></asp:Label>
-            <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
-            <hr />
-            <footer class="w3-container w3-teal" >
-                <h5 style="text-align:center">&copy; <%: DateTime.Now.Year %> - VIDEOSYSTEM</h5>
-            </footer>
-        </div>
+        <table id="tblmenu" style="width:100%;">
+            <tr>
+                <td style="width:10%;align-content:center;text-align:center;"><div class="w3-panel w3-yellow w3-border w3-hover-orange w3-round"><a href="Agenda.aspx" title="Gestione Agenda">Agenda</a></div></td>
+                <td style="width:10%;align-content:center;text-align:center;"><div class="w3-panel w3-yellow w3-border w3-hover-orange w3-round"><a href="#" title="Report">Report</a></div></td>
+                <td style="width:10%;align-content:center;text-align:center;"><div class="w3-panel w3-yellow w3-border w3-hover-orange w3-round"><a href="#" title="Gestione Anagrafiche Clienti - Fornitori - Collaboratori">Anagrafiche</a></div></td>
+                <td style="width:10%;align-content:center;text-align:center;"><div class="w3-panel w3-yellow w3-border w3-hover-orange w3-round"><a href="#" title="Gestione Magazzino">Magazzino</a></div></td>
+                <td style="width:10%;align-content:center;text-align:center;"></td>
+                <td style="width:10%;align-content:center;text-align:center;"></td>
+                <td style="width:10%;align-content:center;text-align:center;"></td>
+                <td style="width:10%;align-content:center;text-align:center;"></td>
+                <td style="width:10%;align-content:center;text-align:center;"><div class="w3-panel w3-yellow w3-border w3-hover-orange w3-round"><a href="Login.aspx" title="Uscita Applicazione">ESCI</a></div></td>
+                <td style="width:10%;align-content:center;text-align:center;">
+                    <asp:Image ID="Image1" runat="server" Height="100px" ImageAlign="AbsMiddle" ImageUrl="~/logoVSP.png" />
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="container body-content" style="height:90%;">
+        <asp:Label ID="lbl_benvenuto" runat="server" ></asp:Label>
+        <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
+        <hr />
+        <footer class="w3-container w3-teal" >
+            <h5 style="text-align:center">&copy; <%: DateTime.Now.Year %> - VIDEOSYSTEM</h5>
+        </footer>
+    </div>
 
     </form>
 </body>
