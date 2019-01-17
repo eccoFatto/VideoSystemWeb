@@ -8,7 +8,8 @@
                     todayBtn: true,
                     language: "it",
                     autoclose: true,
-                    todayHighlight: true
+                    todayHighlight: true,
+                    startDate: "<%=dataCalendario%>"
             })
             $input.data('datepicker').hide = function () {};
             $input.datepicker('show');

@@ -11,10 +11,16 @@ namespace VideoSystemWeb
 {
     public partial class grigliaNicola : System.Web.UI.Page
     {
+        public string dataCalendario { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            gv_scheduler.DataSource = CreateDataTable(new DateTime(2019, 1, 1));
-            gv_scheduler.DataBind();
+            if (!IsPostBack)
+            {
+                dataCalendario = DateTime.Now.ToString("dd/MM/yyyy");
+                DateTime dataPartenza = DateTime.Parse(dataCalendario);
+                gv_scheduler.DataSource = CreateDataTable(dataPartenza);
+                gv_scheduler.DataBind();
+            }
         }
 
         private DataTable CreateDataTable(DateTime data)
@@ -79,7 +85,8 @@ namespace VideoSystemWeb
 
         protected void TextBox1_TextChanged(object sender, EventArgs e)
         {
-            gv_scheduler.DataSource = CreateDataTable(DateTime.Parse(TextBox1.Text));
+            dataCalendario = TextBox1.Text;
+            gv_scheduler.DataSource = CreateDataTable(DateTime.Parse(dataCalendario));
             gv_scheduler.DataBind();
         }
        
