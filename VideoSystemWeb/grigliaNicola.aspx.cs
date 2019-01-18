@@ -26,8 +26,6 @@ namespace VideoSystemWeb
 
         private DataTable CreateDataTable(DateTime data)
         {
-            
-
             DataTable table = new DataTable();
 
             #region intestazione tabella
@@ -42,7 +40,7 @@ namespace VideoSystemWeb
             {
                 column = new DataColumn();
                 column.DataType = typeof(string);
-                column.ColumnName = risorsa.id.ToString();
+                column.ColumnName = risorsa.id.ToString(); // inserisco id risorsa per poi formattare la cella in RowDataBound 
 
                 table.Columns.Add(column);
             }
@@ -63,7 +61,7 @@ namespace VideoSystemWeb
                     {
                         DatiAgenda datoCorrente = datiAgendaFiltrati.FirstOrDefault();
                        
-                        row[indiceColonna++] = datoCorrente.id.ToString();
+                        row[indiceColonna++] = datoCorrente.id.ToString(); // inserisco id datoAgenda per poi formattare la cella in RowDataBound 
                     }
                     else
                     {
@@ -86,16 +84,13 @@ namespace VideoSystemWeb
             {
                 for (int indiceColonna = 1; indiceColonna <= listaRisorse.Count; indiceColonna++)
                 {
-                
                     string idRisorsa = (e.Row.Cells[indiceColonna].Text.Trim());
                     
                     Tipologica risorsaCorrente = Tipologie.getRisorsaById(int.Parse(idRisorsa));
                     string colore = Utility.getParametroDaTipologica(risorsaCorrente, "color");
                     e.Row.Cells[indiceColonna].Attributes.Add("style", "background-color:" + colore + ";font-size:10pt;text-align:center;");
                     e.Row.Cells[indiceColonna].Text = risorsaCorrente.nome;
-                    
                 }
-
             }
 
             if (e.Row.RowType == DataControlRowType.DataRow)

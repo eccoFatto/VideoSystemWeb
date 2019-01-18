@@ -19,14 +19,28 @@
             });
         });
     </script>
+    <style>
+        .round
+        {
+         border: 1px solid black;
+          -webkit-border-radius: 8px;
+          -moz-border-radius: 8px;
+          border-radius: 8px;
+          overflow: hidden;
+          border-color:#AEAEAE;
+        }
+
+    </style>
     <table style="width:100%">
         <tr>
             <td style="width:70%;vertical-align:top;">
                 <asp:ScriptManager ID="ScriptManager1" EnablePartialRendering="true" runat="server" />
                 <asp:Button ID="btnsearch" runat="server" Text="SEARCH" OnClick="btnsearch_Click" style="display:none"/>
                 <asp:UpdatePanel ID="UpdatePanelCal" runat="server">
-                    <ContentTemplate>                              
-                        <asp:GridView ID="gv_scheduler" runat="server" OnRowDataBound="gv_scheduler_RowDataBound" style="font-size:10pt; width:100%;position:relative;"></asp:GridView>
+                    <ContentTemplate>      
+                        <div class="round">
+                            <asp:GridView ID="gv_scheduler" runat="server" OnRowDataBound="gv_scheduler_RowDataBound" style="font-size:10pt; width:100%;position:relative"></asp:GridView>
+                        </div>
                     </ContentTemplate>
                     <Triggers>
                         <asp:AsyncPostBackTrigger ControlID="btnsearch" EventName="Click" /> 
