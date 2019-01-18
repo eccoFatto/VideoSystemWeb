@@ -139,6 +139,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Css\bootstrap-datepicker3.min.css" />
     <Content Include="Default.aspx" />
+    <Content Include="dll_esterne\AjaxControlToolkit.dll" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -388,7 +389,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="DAL\" />
-    <Folder Include="dll_esterne\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
