@@ -5,12 +5,15 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using VideoSystemWeb.BLL;
 using VideoSystemWeb.Entity;
 
 namespace VideoSystemWeb
 {
     public partial class grigliaNicola : System.Web.UI.Page
     {
+        List<DatiAgenda> listaDatiAgenda = Tipologie.getListaDatiAgenda();
+        List<Tipologica> listaRisorse = Tipologie.getListaRisorse();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -23,8 +26,7 @@ namespace VideoSystemWeb
 
         private DataTable CreateDataTable(DateTime data)
         {
-            List<DatiAgenda> listaDatiAgenda = Tipologie.getListaDatiAgenda();
-            List<Tipologica> listaRisorse = Tipologie.getListaRisorse();
+            
 
             DataTable table = new DataTable();
 
@@ -33,13 +35,14 @@ namespace VideoSystemWeb
             column = new DataColumn();
             column.DataType = typeof(string);
             column.ColumnName = " ";
+            
             table.Columns.Add(column);
 
             foreach (Tipologica risorsa in listaRisorse)
             {
                 column = new DataColumn();
                 column.DataType = typeof(string);
-                column.ColumnName = risorsa.nome;
+                column.ColumnName = risorsa.id.ToString();
 
                 table.Columns.Add(column);
             }
@@ -69,12 +72,23 @@ namespace VideoSystemWeb
         {
             if (e.Row.RowType == DataControlRowType.Header)
             {
-                e.Row.Attributes.Add("style", "background-color:yellowgreen;font-size:10pt;text-align:center;");
+                for (int indiceColonna = 1; indiceColonna <= listaRisorse.Count; indiceColonna++)
+                {
+                
+                    string idRisorsa = (e.Row.Cells[indiceColonna].Text.Trim());
+                    
+                    Tipologica risorsaCorrente = Tipologie.getTipologicaById(int.Parse(idRisorsa));
+                    string colore = Utility.getParametroDaTipologica(risorsaCorrente, "color");
+                    e.Row.Cells[indiceColonna].Attributes.Add("style", "background-color:" + colore + ";font-size:10pt;text-align:center;");
+                    e.Row.Cells[indiceColonna].Text = risorsaCorrente.nome;
+                    
+                }
+
             }
 
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                e.Row.Cells[0].Attributes.Add("style", "font-weight:bold;background-color:yellowgreen;");
+                e.Row.Cells[0].Attributes.Add("style", "font-weight:bold;background-color:#FDEDB5;");
                 e.Row.Attributes.Add("style", "text-align:center;");
             }
         }
