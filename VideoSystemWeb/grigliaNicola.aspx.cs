@@ -11,13 +11,11 @@ namespace VideoSystemWeb
 {
     public partial class grigliaNicola : System.Web.UI.Page
     {
-        public string dataCalendario { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                dataCalendario = DateTime.Now.ToString("dd/MM/yyyy");
-                DateTime dataPartenza = DateTime.Parse(dataCalendario);
+                DateTime dataPartenza = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
                 gv_scheduler.DataSource = CreateDataTable(dataPartenza);
                 gv_scheduler.DataBind();
             }
@@ -81,15 +79,10 @@ namespace VideoSystemWeb
             }
         }
 
-       
-
-        protected void TextBox1_TextChanged(object sender, EventArgs e)
+        protected void btnsearch_Click(object sender, EventArgs e)
         {
-            dataCalendario = TextBox1.Text;
-            gv_scheduler.DataSource = CreateDataTable(DateTime.Parse(dataCalendario));
+            gv_scheduler.DataSource = CreateDataTable(DateTime.Parse(HiddenField1.Value));
             gv_scheduler.DataBind();
         }
-       
-
     }
 }

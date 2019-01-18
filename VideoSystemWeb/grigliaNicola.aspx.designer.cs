@@ -13,6 +13,33 @@ namespace VideoSystemWeb {
     public partial class grigliaNicola {
         
         /// <summary>
+        /// Controllo ScriptManager1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        
+        /// <summary>
+        /// Controllo btnsearch.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnsearch;
+        
+        /// <summary>
+        /// Controllo UpdatePanelCal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanelCal;
+        
+        /// <summary>
         /// Controllo gv_scheduler.
         /// </summary>
         /// <remarks>
@@ -22,12 +49,12 @@ namespace VideoSystemWeb {
         protected global::System.Web.UI.WebControls.GridView gv_scheduler;
         
         /// <summary>
-        /// Controllo TextBox1.
+        /// Controllo HiddenField1.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.HiddenField HiddenField1;
     }
 }

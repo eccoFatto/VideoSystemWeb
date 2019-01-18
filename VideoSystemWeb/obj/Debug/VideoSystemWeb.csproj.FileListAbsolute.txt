@@ -81,3 +81,4 @@ d:\Profiles\nfoti\source\repos\VideoSystemWeb\VideoSystemWeb\bin\MySql.Data.Enti
 d:\Profiles\nfoti\source\repos\VideoSystemWeb\VideoSystemWeb\bin\MySQL.Data.EntityFrameworkCore.xml
 d:\Profiles\nfoti\source\repos\VideoSystemWeb\VideoSystemWeb\bin\MySQL.Data.EntityFrameworkCore.Design.xml
 d:\Profiles\nfoti\source\repos\VideoSystemWeb\VideoSystemWeb\bin\MySql.Web.xml
+d:\Profiles\nfoti\source\repos\VideoSystemWeb\VideoSystemWeb\bin\AjaxControlToolkit.dll
