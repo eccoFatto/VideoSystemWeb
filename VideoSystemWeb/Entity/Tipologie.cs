@@ -15,6 +15,25 @@ namespace VideoSystemWeb.Entity
         //public static Tipo_Evento EVENTO_RIPOSI = new Tipo_Evento() { id = 5, titolo = "Riposi", descrizione = "Tipologia di evento n.5", colore = "#E85C00" };
         #endregion
 
+        #region STATI EVENTO
+        public static List<Tipologica> getListaStati()
+        {
+            List<Tipologica> listaStati = new List<Tipologica>();
+
+            listaStati.Add(new Tipologica(1, "Previsione impegno", "Previsione impegno", "", "COLOR=#C7C7C7"));
+            listaStati.Add(new Tipologica(2, "Offerta", "Offerta", "", "COLOR=#FFCC00"));
+            listaStati.Add(new Tipologica(3, "Lavorazione", "Lavorazione", "", "COLOR=#339966"));
+            listaStati.Add(new Tipologica(4, "Fattura", "Daniele Verdi", "dipendenti", "COLOR=#3F3FBE"));
+
+            return listaStati;
+        }
+
+        public static Tipologica getStatoById(int id)
+        {
+            return getListaStati().Where(x => x.id == id).FirstOrDefault();
+        }
+        #endregion
+
         #region TIPI UTENTE
         public static Tipo_Utente TIPO_AMMINISTRATORE = new Tipo_Utente() { id = 1, tipoUtente= "Amministartore", descrizione = "Amministratore" };
         public static Tipo_Utente TIPO_OPERATORE = new Tipo_Utente() { id = 2, tipoUtente = "Operatore", descrizione = "Operatore" };
@@ -44,7 +63,7 @@ namespace VideoSystemWeb.Entity
             return listaRisorse;
         }
 
-        public static Tipologica getTipologicaById(int id)
+        public static Tipologica getRisorsaById(int id)
         {
             return getListaRisorse().Where(x => x.id == id).FirstOrDefault();
         }
@@ -55,23 +74,28 @@ namespace VideoSystemWeb.Entity
         {
             List<DatiAgenda> listaDatiAgenda = new List<DatiAgenda>();
 
-            listaDatiAgenda.Add(new DatiAgenda(1, 1, new DateTime(2019, 1, 16), new DateTime(2019, 1, 18), "Ev 1"));
-            listaDatiAgenda.Add(new DatiAgenda(2, 1, new DateTime(2019, 1, 21), new DateTime(2019, 1, 22), "Ev 2"));
-            listaDatiAgenda.Add(new DatiAgenda(3, 1, new DateTime(2019, 1, 25), new DateTime(2019, 1, 27), "Ev 3"));
+            listaDatiAgenda.Add(new DatiAgenda(1, 1, 1, new DateTime(2019, 1, 16), new DateTime(2019, 1, 18), "Ev 1"));
+            listaDatiAgenda.Add(new DatiAgenda(2, 1, 3, new DateTime(2019, 1, 21), new DateTime(2019, 1, 22), "Ev 2"));
+            listaDatiAgenda.Add(new DatiAgenda(3, 1, 2, new DateTime(2019, 1, 25), new DateTime(2019, 1, 27), "Ev 3"));
 
-            listaDatiAgenda.Add(new DatiAgenda(4, 3, new DateTime(2019, 1, 17), new DateTime(2019, 1, 20), "Ev 4"));
-            listaDatiAgenda.Add(new DatiAgenda(5, 3, new DateTime(2019, 1, 22), new DateTime(2019, 1, 22), "Ev 5"));
-            listaDatiAgenda.Add(new DatiAgenda(6, 3, new DateTime(2019, 1, 24), new DateTime(2019, 1, 27), "Ev 6"));
+            listaDatiAgenda.Add(new DatiAgenda(4, 3, 2, new DateTime(2019, 1, 17), new DateTime(2019, 1, 20), "Ev 4"));
+            listaDatiAgenda.Add(new DatiAgenda(5, 3, 4, new DateTime(2019, 1, 22), new DateTime(2019, 1, 22), "Ev 5"));
+            listaDatiAgenda.Add(new DatiAgenda(6, 3, 2, new DateTime(2019, 1, 24), new DateTime(2019, 1, 27), "Ev 6"));
 
-            listaDatiAgenda.Add(new DatiAgenda(7, 4, new DateTime(2019, 1, 19), new DateTime(2019, 1, 20), "Ev 7"));
-            listaDatiAgenda.Add(new DatiAgenda(8, 4, new DateTime(2019, 1, 23), new DateTime(2019, 1, 24), "Ev 8"));
+            listaDatiAgenda.Add(new DatiAgenda(7, 4, 2, new DateTime(2019, 1, 19), new DateTime(2019, 1, 20), "Ev 7"));
+            listaDatiAgenda.Add(new DatiAgenda(8, 4, 1, new DateTime(2019, 1, 23), new DateTime(2019, 1, 24), "Ev 8"));
 
-            listaDatiAgenda.Add(new DatiAgenda(9, 6, new DateTime(2019, 1, 16), new DateTime(2019, 1, 20), "Ev 9"));
-            listaDatiAgenda.Add(new DatiAgenda(10, 6, new DateTime(2019, 1, 22), new DateTime(2019, 1, 22), "Ev 10"));
-            listaDatiAgenda.Add(new DatiAgenda(11, 6, new DateTime(2019, 1, 24), new DateTime(2019, 1, 24), "Ev 11"));
-            listaDatiAgenda.Add(new DatiAgenda(12, 6, new DateTime(2019, 1, 26), new DateTime(2019, 1, 26), "Ev 12"));
+            listaDatiAgenda.Add(new DatiAgenda(9, 6, 4, new DateTime(2019, 1, 16), new DateTime(2019, 1, 20), "Ev 9"));
+            listaDatiAgenda.Add(new DatiAgenda(10, 6, 4, new DateTime(2019, 1, 22), new DateTime(2019, 1, 22), "Ev 10"));
+            listaDatiAgenda.Add(new DatiAgenda(11, 6, 3, new DateTime(2019, 1, 24), new DateTime(2019, 1, 24), "Ev 11"));
+            listaDatiAgenda.Add(new DatiAgenda(12, 6, 1, new DateTime(2019, 1, 26), new DateTime(2019, 1, 26), "Ev 12"));
             return listaDatiAgenda;
 
+        }
+
+        public static DatiAgenda getDatiAgendaById(int id)
+        {
+            return getListaDatiAgenda().Where(x => x.id == id).FirstOrDefault();
         }
         #endregion
     }

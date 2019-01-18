@@ -49,12 +49,12 @@ namespace VideoSystemWeb {
         protected global::System.Web.UI.WebControls.GridView gv_scheduler;
         
         /// <summary>
-        /// Controllo HiddenField1.
+        /// Controllo hf_valoreData.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HiddenField1;
+        protected global::System.Web.UI.WebControls.HiddenField hf_valoreData;
     }
 }

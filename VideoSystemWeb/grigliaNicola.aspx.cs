@@ -58,7 +58,19 @@ namespace VideoSystemWeb
                 int indiceColonna = 1;
                 foreach (Tipologica risorsa in listaRisorse)
                 {
-                    row[indiceColonna++] = listaDatiAgenda.Where(x => x.data_inizio <= dataRiga && x.data_fine >= dataRiga && x.id_risorsa == risorsa.id).Count() > 0 ? "X" : " ";
+                    List<DatiAgenda> datiAgendaFiltrati = listaDatiAgenda.Where(x => x.data_inizio <= dataRiga && x.data_fine >= dataRiga && x.id_risorsa == risorsa.id).ToList<DatiAgenda>();
+                    if (datiAgendaFiltrati.Count == 1)
+                    {
+                        DatiAgenda datoCorrente = datiAgendaFiltrati.FirstOrDefault();
+                       
+                        row[indiceColonna++] = datoCorrente.id.ToString();
+                    }
+                    else
+                    {
+                        row[indiceColonna++] = " ";
+                    }
+
+                    //row[indiceColonna++] = listaDatiAgenda.Where(x => x.data_inizio <= dataRiga && x.data_fine >= dataRiga && x.id_risorsa == risorsa.id).Count() > 0 ? "X" : " ";
 
                 }
                 table.Rows.Add(row);
@@ -77,7 +89,7 @@ namespace VideoSystemWeb
                 
                     string idRisorsa = (e.Row.Cells[indiceColonna].Text.Trim());
                     
-                    Tipologica risorsaCorrente = Tipologie.getTipologicaById(int.Parse(idRisorsa));
+                    Tipologica risorsaCorrente = Tipologie.getRisorsaById(int.Parse(idRisorsa));
                     string colore = Utility.getParametroDaTipologica(risorsaCorrente, "color");
                     e.Row.Cells[indiceColonna].Attributes.Add("style", "background-color:" + colore + ";font-size:10pt;text-align:center;");
                     e.Row.Cells[indiceColonna].Text = risorsaCorrente.nome;
@@ -89,13 +101,27 @@ namespace VideoSystemWeb
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 e.Row.Cells[0].Attributes.Add("style", "font-weight:bold;background-color:#FDEDB5;");
+
+                for (int indiceColonna = 1; indiceColonna <= listaRisorse.Count; indiceColonna++)
+                {
+                    if (!string.IsNullOrEmpty(e.Row.Cells[indiceColonna].Text.Trim()))
+                    {
+                        DatiAgenda datoAgendaCorrente = Tipologie.getDatiAgendaById(int.Parse(e.Row.Cells[indiceColonna].Text.Trim()));
+                        string colore = Utility.getParametroDaTipologica(Tipologie.getStatoById(datoAgendaCorrente.id_stato), "color");
+                        string descrizione = datoAgendaCorrente.descrizione;
+
+                        e.Row.Cells[indiceColonna].Text = descrizione;
+                        e.Row.Cells[indiceColonna].Attributes.Add("style", "font-weight:bold;background-color:" + colore);
+                    }
+                }
+                
                 e.Row.Attributes.Add("style", "text-align:center;");
             }
         }
 
         protected void btnsearch_Click(object sender, EventArgs e)
         {
-            gv_scheduler.DataSource = CreateDataTable(DateTime.Parse(HiddenField1.Value));
+            gv_scheduler.DataSource = CreateDataTable(DateTime.Parse(hf_valoreData.Value));
             gv_scheduler.DataBind();
         }
     }

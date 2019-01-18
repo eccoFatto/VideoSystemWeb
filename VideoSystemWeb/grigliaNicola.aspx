@@ -14,7 +14,7 @@
             $input.data('datepicker').hide = function () {};
             $input.datepicker('show');
             $input.on('changeDate', function (e) {
-                $("#<%=HiddenField1.ClientID%>").val(e.format());
+                $("#<%=hf_valoreData.ClientID%>").val(e.format());
                 $("#<%=btnsearch.ClientID%>").click();
             });
         });
@@ -35,7 +35,7 @@
             </td>
             <td style="width:30%;vertical-align:top; padding-left:50px;">
                 <div class="calendarPresentazione"></div>
-                <asp:HiddenField ID="HiddenField1" runat="server" />
+                <asp:HiddenField ID="hf_valoreData" runat="server" />
             </td>
         </tr>
 
